@@ -9,14 +9,14 @@ public:
     int topIndex;
 };
 
-void StackInit(StackArray * pstack)
+void StackInit(StackArray * pStack)
 {
-    pstack->topIndex = -1;
+    pStack->topIndex = -1;
 }
 
-int SIsEmpty(StackArray * pstack)
+int SIsEmpty(StackArray * pStack)
 {
-    if(pstack->topIndex == -1){
+    if(pStack->topIndex == -1){
         return 1;
     }
     else{
@@ -24,34 +24,34 @@ int SIsEmpty(StackArray * pstack)
     }
 }
 
-void SPush(StackArray * pstack, int data)
+void SPush(StackArray * pStack, int data)
 {
-    pstack->topIndex += 1;
-    pstack->stackArr[pstack->topIndex] = data;
+    pStack->topIndex += 1;
+    pStack->stackArr[pStack->topIndex] = data;
 }
 
-int SPop(StackArray * pstack)
+int SPop(StackArray * pStack)
 {
     int rIdx;
-    
-    if(SIsEmpty(pstack)){
+
+    if(SIsEmpty(pStack)){
         cout << "Stack Memory Error!" << endl;
         return -1;
     }
-    
-    rIdx = pstack->topIndex;
-    pstack->topIndex -= 1;
-    
-    return pstack->stackArr[rIdx];
+
+    rIdx = pStack->topIndex;
+    pStack->topIndex -= 1;
+
+    return pStack->stackArr[rIdx];
 }
 
-void SDelete(StackArray * pstack)
+void SDelete(StackArray * pStack)
 {
-    if(SIsEmpty(pstack)){
+    if(SIsEmpty(pStack)){
         cout << "Stack Memory Error!" << endl;;
     }
-    
-    pstack->topIndex -= 1;
+
+    pStack->topIndex -= 1;
 }
 
 int main()
@@ -66,7 +66,7 @@ int main()
     for(int i =0; i<len; i++)
     {
         cin>>k;
-    
+
         if(k == 0)
         {
             SDelete(&stack);
@@ -76,7 +76,7 @@ int main()
             SPush(&stack, k);
         }
     }
-    
+
     int total = 0;
     while(!SIsEmpty(&stack))
     {
