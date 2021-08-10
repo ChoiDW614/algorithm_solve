@@ -1,0 +1,2 @@
+#pragma code_page(65001)
+1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "D:/Github/BaekJoonQuestion/Q2_stack/cmake-build-debug/CMakeFiles/Q2_stack.dir/embed.manifest"

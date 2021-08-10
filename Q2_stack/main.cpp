@@ -5,8 +5,13 @@ using namespace std;
 class StackArray
 {
 public:
-    int stackArr[100];
-    int topIndex;
+    int *stackArr = new int;
+    int topIndex{};
+
+    ~StackArray()
+    {
+        delete stackArr;
+    }
 };
 
 void StackInit(StackArray * pStack)
@@ -28,6 +33,7 @@ void SPush(StackArray * pStack, int data)
 {
     pStack->topIndex += 1;
     pStack->stackArr[pStack->topIndex] = data;
+
 }
 
 int SPop(StackArray * pStack)
