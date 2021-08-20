@@ -5,8 +5,13 @@ using namespace std;
 class StackArray
 {
 public:
-    int *stackArr = new int;
+    int *stackArr;
     int topIndex{};
+
+    explicit StackArray(int length)
+    {
+        stackArr = new int[length];
+    }
 
     ~StackArray()
     {
@@ -65,7 +70,7 @@ int main()
     int len;
     cin >> len;
 
-    StackArray stack;
+    StackArray stack(len);
     StackInit(&stack);
 
     int k;
@@ -82,6 +87,7 @@ int main()
             SPush(&stack, k);
         }
     }
+
 
     int total = 0;
     while(!SIsEmpty(&stack))
