@@ -1,52 +1,108 @@
 #include<iostream>
-#include<vector>
 
-int main() {
-    int numOfInteger;
-    std::cin >> numOfInteger;
+class BTree{
+public:
+    int data;
+    BTree * left;
+    BTree * right;
+};
 
-    std::vector<int> stack;
-    stack.resize(numOfInteger, 0);
+BTree * MakeBTree(){
+    BTree * nd = new BTree;
+    nd->left = nullptr;
+    nd->right = nullptr;
+    return nd;
+}
 
-    for (int i = 0; i < numOfInteger; i++)
+int getData(BTree * bt){
+    return bt->data;
+}
+
+void setData(BTree * bt, int data){
+    bt->data = data;
+}
+
+void MakeLeftSubTree(BTree * main, BTree * sub){
+    if(main->left != nullptr)
+        delete main->left;
+    main->left = sub;
+}
+
+void MakeRightSubTree(BTree * main, BTree * sub){
+    if(main->right != nullptr)
+        delete main->right;
+    main->right = sub;
+}
+
+BTree * GetLeftSubTree(BTree * bt){
+    return bt->left;
+}
+
+BTree * GetRightSubTree(BTree * bt){
+    return bt->right;
+}
+
+void BSTMakeAndInit(BTree ** pRoot){
+    *pRoot = nullptr;
+}
+
+int BSTGetNodeData(BTree * bst){
+    return getData(bst);
+}
+
+void BSTInsert(BTree ** pRoot, int data)
+{
+    BTree * pNode = nullptr;
+    BTree * cNode = *pRoot;
+    BTree * nNode = nullptr;
+
+    while(cNode != nullptr)
     {
-        // input the data;
-        int suBinNum;
-        while (true)
-        {
-            std::cin >> suBinNum;
-            if (suBinNum >= -10000 && suBinNum <= 10000)
-                break;
-        }
+        if(data == getData(cNode))
+            return;
 
-        // input and sort the data in stack;
-        if (i == 0)
-        {
-            stack[0] = suBinNum;
-        }
+        pNode = cNode;
+
+        if(getData(cNode) > data)
+            cNode = GetLeftSubTree(cNode);
         else
-        {
-            for (int j = 0; j <= i; j++)
-            {
-                if (stack[j] >= suBinNum && j != i)
-                {
-                    for (int k = i - 1; k >= j; k--)
-                    {
-                        stack[k + 1] = stack[k];
-                    }
-                    stack[j] = suBinNum;
-                    break;
-                }
-                if (stack[j] == 0)
-                {
-                    stack[i] = suBinNum;
-                    break;
-                }
-            }
-        }
+            cNode = GetRightSubTree(cNode);
+    }
 
-        // return the target data
-        std::cout << stack[i/2] << std::endl;
+    nNode = MakeBTree();
+    setData(nNode, data);
+
+    if(pNode != nullptr)
+    {
+        if(data < getData(pNode))
+            MakeLeftSubTree(pNode, nNode);
+        else
+            MakeRightSubTree(pNode, nNode);
+    }
+    else{
+        *pRoot = nNode;
+    }
+}
+
+void Rebalance(BTree * bst)
+{
+
+}
+
+int main()
+{
+    BTree * bstRoot;
+    BSTMakeAndInit(&bstRoot);
+
+    int sumOfN;
+    std::cin >> sumOfN;
+    int inputNum;
+    for(int i = 0; i < sumOfN; i++)
+    {
+        std::cin >> inputNum;
+        BSTInsert(&bstRoot, inputNum);
+
+        std::cout << bstRoot->data << std::endl;
     }
 
     return 0;
