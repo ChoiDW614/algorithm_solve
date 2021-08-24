@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Q3.dir/binaryInsertionSort.cpp.obj"
   "CMakeFiles/Q3.dir/main.cpp.obj"
   "Q3.exe"
   "Q3.exe.manifest"

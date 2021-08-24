@@ -84,9 +84,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/Github/BaekJoonQuestion/Q3/binaryInsertionSort.cpp">
-			<Option target="Q3"/>
-		</Unit>
 		<Unit filename="D:/Github/BaekJoonQuestion/Q3/main.cpp">
 			<Option target="Q3"/>
 		</Unit>
