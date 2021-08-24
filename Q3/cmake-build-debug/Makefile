@@ -118,6 +118,30 @@ Q3\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Q3.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Q3.dir\build
 .PHONY : Q3\fast
 
+binaryInsertionSort.obj: binaryInsertionSort.cpp.obj
+.PHONY : binaryInsertionSort.obj
+
+# target to build an object file
+binaryInsertionSort.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Q3.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Q3.dir\binaryInsertionSort.cpp.obj
+.PHONY : binaryInsertionSort.cpp.obj
+
+binaryInsertionSort.i: binaryInsertionSort.cpp.i
+.PHONY : binaryInsertionSort.i
+
+# target to preprocess a source file
+binaryInsertionSort.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Q3.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Q3.dir\binaryInsertionSort.cpp.i
+.PHONY : binaryInsertionSort.cpp.i
+
+binaryInsertionSort.s: binaryInsertionSort.cpp.s
+.PHONY : binaryInsertionSort.s
+
+# target to generate assembly for a file
+binaryInsertionSort.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Q3.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Q3.dir\binaryInsertionSort.cpp.s
+.PHONY : binaryInsertionSort.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -151,6 +175,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Q3
+	@echo ... binaryInsertionSort.obj
+	@echo ... binaryInsertionSort.i
+	@echo ... binaryInsertionSort.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

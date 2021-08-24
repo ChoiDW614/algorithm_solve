@@ -7,6 +7,8 @@
 #IncludeRegexTransform: 
 
 D:/Github/BaekJoonQuestion/Q3/main.cpp
-iostream
+cstdio
+-
+vector
 -
 
