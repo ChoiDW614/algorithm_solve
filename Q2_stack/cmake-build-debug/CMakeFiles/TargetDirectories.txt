@@ -1,3 +1,0 @@
-D:/Github/BaekJoonQuestion/Q2_stack/cmake-build-debug/CMakeFiles/Q2_stack.dir
-D:/Github/BaekJoonQuestion/Q2_stack/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/Github/BaekJoonQuestion/Q2_stack/cmake-build-debug/CMakeFiles/rebuild_cache.dir
