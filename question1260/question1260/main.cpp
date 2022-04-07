@@ -1,15 +1,17 @@
 #include <iostream>
+#include <queue>
 #define FAST_IO std::ios_base::sync_with_stdio(false);	std::cin.tie(nullptr);
 
 int N, M, i, j, toV, fromV, initV;
-bool visited[1001];
+bool visitedD[1001];
+bool visitedB[1001];
 
 void DFS(int node, int ** edge)
 {
 	std::cout << node << " ";
-	visited[node] = true;
+	visitedD[node] = true;
 	for (int i = 0; i < N; i++) {
-		if (edge[node-1][i] && visited[i + 1] == false) {
+		if (edge[node-1][i] && visitedD[i + 1] == false) {
 				DFS(i+1, edge);
 		}
 	}
@@ -17,7 +19,21 @@ void DFS(int node, int ** edge)
 
 void BFS(int node, int** edge)
 {
+	std::queue<int> q;
+	q.push(node);
+	visitedB[node] = true;
 
+	while (!q.empty()) {
+		int x = q.front();
+		q.pop();
+		std::cout << x << " ";
+		for (int i = 0; i < N; i++) {
+			if (edge[x - 1][i] && visitedB[i + 1] == false) {
+				q.push(i + 1);
+				visitedB[i + 1] = true;
+			}
+		}
+	}
 }
 
 void Solve()
