@@ -1,2 +1,2 @@
-# BaekJoonQuestion
+# algorithm_solve
 
